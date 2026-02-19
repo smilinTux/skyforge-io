@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyForge - Sovereign Alignment Calendar System</title>
+    <meta name="description" content="Forge your sovereign path through the cosmos. Personalized daily alignment calendars integrating moon phases, numerology, Human Design, I Ching, biorhythms, and more.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0B0B2B 0%, #1A1A4E 50%, #2D1B69 100%);
+            color: white;
+            line-height: 1.6;
+        }
+
+        .header {
+            padding: 3rem 2rem;
+            text-align: center;
+            background: rgba(100, 60, 180, 0.1);
+        }
+
+        .logo {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.08); opacity: 0.9; }
+        }
+
+        .title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #A78BFA, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            color: #C4B5FD;
+        }
+
+        .domains-section {
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .domains-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .domain-card {
+            background: rgba(255,255,255,0.04);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(167, 139, 250, 0.2);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .domain-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.08);
+            box-shadow: 0 10px 30px rgba(167, 139, 250, 0.2);
+        }
+
+        .domain-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .domain-card h3 {
+            color: #C4B5FD;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .domain-card p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .preview-section {
+            background: rgba(0,0,0,0.3);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .preview-box {
+            background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(167, 139, 250, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            max-width: 700px;
+            margin: 2rem auto;
+            text-align: left;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            color: #E2D9F3;
+        }
+
+        .preview-box .highlight {
+            color: #FFD700;
+        }
+
+        .preview-box .accent {
+            color: #A78BFA;
+        }
+
+        .features-section {
+            padding: 4rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-item h3 {
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(45deg, #7C3AED, #A78BFA);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.4);
+            color: #FFD700;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 0.5rem;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+        }
+
+        footer {
+            background: rgba(0,0,0,0.5);
+            padding: 2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div style="background: rgba(0,0,0,0.3); padding: 1rem 2rem; font-size: 0.9rem;">
+        <a href="https://skworld.io" style="color: #87CEEB; text-decoration: none;">🐧 SKWorld</a> →
+        <span>🌟 SkyForge</span>
+    </div>
+
+    <header class="header">
+        <div class="logo">🌟</div>
+        <h1 class="title">SkyForge</h1>
+        <p class="tagline">Forge Your Sovereign Path Through the Cosmos</p>
+        <p>Scientifically Mapped. Spiritually Grounded.</p>
+    </header>
+
+    <section class="domains-section">
+        <h2 style="text-align: center; font-size: 2.5rem; color: #FFD700; margin-bottom: 1rem;">
+            10 Integrated Guidance Domains
+        </h2>
+        <p style="text-align: center; color: #C4B5FD; margin-bottom: 2rem;">
+            Personalized daily alignment calendars that unify wisdom traditions with modern analysis.
+        </p>
+
+        <div class="domains-grid">
+            <div class="domain-card">
+                <div class="domain-icon">🌓</div>
+                <h3>Moon Phase & Sign</h3>
+                <p>Lunar phase, zodiac position, void-of-course periods</p>
+            </div>
+
+            <div class="domain-card">
+                <div class="domain-icon">🔢</div>
+                <h3>Numerology</h3>
+                <p>Life path, personal year/month/day calculations</p>
+            </div>
+
+            <div class="domain-card">
+                <div class="domain-icon">🌞</div>
+                <h3>Solar Return</h3>
+                <p>Annual chart, house focus, planetary transits</p>
+            </div>
+
+            <div class="domain-card">
+                <div class="domain-icon">🧬</div>
+                <h3>Human Design</h3>
+                <p>Type, strategy, authority, daily gate activations</p>
+            </div>
+
+            <div class="domain-card">
+                <div class="domain-icon">☯️</div>
+                <h3>I Ching</h3>
+                <p>Daily hexagram overlay with wisdom guidance</p>
+            </div>
+
+            <div class="domain-card">
+                <div class="domain-icon">📈</div>
+                <h3>Biorhythm</h3>
+                <p>Physical, emotional, intellectual cycle tracking</p>
+            </div>
+
+            <div class="domain-card">
+                <div class="domain-icon">⚠️</div>
+                <h3>Risk Analysis</h3>
+                <p>Multi-domain risk scoring and warnings</p>
+            </div>
+
+            <div class="domain-card">
+                <div class="domain-icon">🧘</div>
+                <h3>Exercise & Embodiment</h3>
+                <p>Physical activity recommendations</p>
+            </div>
+
+            <div class="domain-card">
+                <div class="domain-icon">🥣</div>
+                <h3>Nourishment</h3>
+                <p>Element-based dietary guidance</p>
+            </div>
+
+            <div class="domain-card">
+                <div class="domain-icon">📖</div>
+                <h3>Spiritual Reading</h3>
+                <p>Daily wisdom texts from curated library</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="preview-section">
+        <h2 style="font-size: 2.5rem; color: #FFD700; margin-bottom: 2rem;">
+            Sample Daily Alignment
+        </h2>
+
+        <div class="preview-box">
+            <span class="highlight">╔══════════════════════════════════════════════════════════╗</span><br>
+            <span class="highlight">║</span>  SKYFORGE DAILY SOVEREIGN ALIGNMENT<br>
+            <span class="highlight">║</span>  Wednesday, January 15, 2026 (Day 15 of 365)<br>
+            <span class="highlight">╠══════════════════════════════════════════════════════════╣</span><br>
+            <span class="highlight">║</span>  DAILY THEME: <span class="accent">"Grounded Action with Emotional Wisdom"</span><br>
+            <span class="highlight">║</span>  OVERALL ENERGY: Moderate-High | RISK LEVEL: Low<br>
+            <span class="highlight">╚══════════════════════════════════════════════════════════╝</span><br>
+            <br>
+            🌙 MOON: Waxing Gibbous (78%) in Taurus<br>
+            🔢 NUMEROLOGY: Personal Day 5 (Universal Day 7)<br>
+            ☀️ SOLAR TRANSIT: Sun in Capricorn, 10th House Focus<br>
+            🧬 HUMAN DESIGN: Gate 41 (Decrease) Active<br>
+            ☯️ I CHING: Hexagram 41 - Decrease<br>
+            📊 BIORHYTHM: Physical +67% | Emotional +23% | Mental -12%<br>
+            ⚠️ RISK ANALYSIS: Low (Score: 22/100)<br>
+            <br>
+            <span class="accent">💫 TODAY'S AFFIRMATION:</span><br>
+            &nbsp;&nbsp;&nbsp;<span class="accent">"I build my dreams with patient, steady hands."</span>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <h2 style="text-align: center; font-size: 2.5rem; color: #FFD700; margin-bottom: 2rem;">
+            Key Capabilities
+        </h2>
+
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">📅</div>
+                <h3>Year-Agnostic</h3>
+                <p>Generate calendars for any year - past, present, or future.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">👥</div>
+                <h3>Multi-User Profiles</h3>
+                <p>Support multiple users with unique birth data and preferences.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">📄</div>
+                <h3>Multiple Formats</h3>
+                <p>PDF, Excel/CSV, JSON, and Web Dashboard output.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">🎯</div>
+                <h3>Actionable Guidance</h3>
+                <p>Daily practices tailored for optimal performance.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Ready to Align Your Day?</h2>
+        <p style="font-size: 1.3rem; margin-bottom: 3rem;">
+            Stop juggling apps. Get one unified daily sovereign alignment.
+        </p>
+
+        <a href="https://github.com/smilinTux/skyforge" class="cta-button">
+            🚀 Get SkyForge
+        </a>
+
+        <a href="https://skworld.io#join" class="cta-button">
+            🐧 Join the Coalition
+        </a>
+    </section>
+
+    <footer>
+        <div style="margin-bottom: 2rem;">
+            <h3 style="color: #C4B5FD; margin-bottom: 1rem;">🌟 Part of the SKWorld Ecosystem</h3>
+            <p>Scientifically mapped. Spiritually grounded. Forged for sovereign living.</p>
+        </div>
+
+        <div>
+            <a href="https://skworld.io" style="color: #87CEEB; text-decoration: none; margin: 0 1rem;">🌍 SKWorld</a>
+            <a href="https://skstacks.io" style="color: #87CEEB; text-decoration: none; margin: 0 1rem;">⚡ Platform</a>
+            <a href="https://sksecurity.io" style="color: #87CEEB; text-decoration: none; margin: 0 1rem;">🛡️ Security</a>
+            <a href="https://github.com/smilinTux" style="color: #87CEEB; text-decoration: none; margin: 0 1rem;">📦 GitHub</a>
+        </div>
+
+        <p style="margin-top: 2rem; opacity: 0.7;">
+            &copy; 2026 S&amp;K Holding QT (Quantum Technologies) &bull; Waddle Together, Win Together 🐧
+        </p>
+    </footer>
+</body>
+</html>
