@@ -3,379 +3,428 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkyForge - Sovereign Alignment Calendar System</title>
-    <meta name="description" content="Forge your sovereign path through the cosmos. Personalized daily alignment calendars integrating moon phases, numerology, Human Design, I Ching, biorhythms, and more.">
-    <!-- Open Graph -->
-    <meta property="og:title" content="SkyForge - Sovereign Alignment Calendar System">
-    <meta property="og:description" content="Forge your sovereign path through the cosmos. Personalized daily alignment calendars integrating moon phases, numerology, Human Design, I Ching, biorhythms, and more.">
+    <title>SkyForge -- Your Personal Alignment Calendar</title>
+    <meta name="description" content="Moon phases, numerology, Human Design, I Ching, biorhythms -- personalized alignment calendars.">
+    <link rel="canonical" href="https://skyforge.io">
+    <meta property="og:title" content="SkyForge -- Your Personal Alignment Calendar">
+    <meta property="og:description" content="Moon phases, numerology, Human Design, I Ching, biorhythms -- personalized alignment calendars.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://skyforge.io">
     <meta property="og:site_name" content="SKWorld">
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SkyForge - Sovereign Alignment Calendar System">
-    <meta name="twitter:description" content="Forge your sovereign path through the cosmos. Personalized daily alignment calendars integrating moon phases, numerology, Human Design, I Ching, biorhythms, and more.">
-    <!-- Favicon & Canonical -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔮</text></svg>">
-    <link rel="canonical" href="https://skyforge.io">
+    <meta name="twitter:title" content="SkyForge -- Your Personal Alignment Calendar">
+    <meta name="twitter:description" content="Moon phases, numerology, Human Design, I Ching, biorhythms -- personalized alignment calendars.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%8C%99</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #0B0B2B 0%, #1A1A4E 50%, #2D1B69 100%);
-            color: white;
-            line-height: 1.6;
-        }
+      body {
+        font-family: 'Geist', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: #09090b;
+        color: #fafafa;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
 
-        .header {
-            padding: 3rem 2rem;
-            text-align: center;
-            background: rgba(100, 60, 180, 0.1);
-        }
+      /* ── Nav ─────────────────────────────────── */
+      .nav {
+        border-bottom: 1px solid #27272a;
+        background: #09090b;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+      }
+      .nav-inner {
+        max-width: 72rem;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 4rem;
+        padding: 0 1rem;
+      }
+      .nav-logo {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #fafafa;
+        text-decoration: none;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+      .nav-link {
+        font-size: 0.875rem;
+        color: #a1a1aa;
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+      .nav-link:hover {
+        color: #fafafa;
+      }
 
-        .logo {
-            font-size: 5rem;
-            margin-bottom: 1rem;
-            animation: pulse 4s ease-in-out infinite;
-        }
+      /* ── Hero ────────────────────────────────── */
+      .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 5rem 1rem 3rem;
+      }
+      .hero-icon {
+        color: #34d399;
+        margin-bottom: 1.5rem;
+        opacity: 0.9;
+      }
+      .hero h1 {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        font-weight: 700;
+        letter-spacing: -0.025em;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+      }
+      .hero .tagline {
+        font-size: 1.25rem;
+        color: #a1a1aa;
+        max-width: 40rem;
+        margin-bottom: 2rem;
+      }
+      .hero .cta-row {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.08); opacity: 0.9; }
-        }
+      /* ── Buttons ─────────────────────────────── */
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.75rem 1.5rem;
+        background: #059669;
+        color: #fafafa;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 0.5rem;
+        text-decoration: none;
+        transition: background 0.15s;
+        border: none;
+        cursor: pointer;
+      }
+      .btn-primary:hover {
+        background: #047857;
+      }
+      .btn-outline {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.75rem 1.5rem;
+        background: transparent;
+        color: #fafafa;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 0.5rem;
+        border: 1px solid #3f3f46;
+        text-decoration: none;
+        transition: border-color 0.15s, color 0.15s;
+        cursor: pointer;
+      }
+      .btn-outline:hover {
+        border-color: #a1a1aa;
+      }
 
-        .title {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #A78BFA, #FFD700);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+      /* ── Description ─────────────────────────── */
+      .desc-section {
+        max-width: 48rem;
+        margin: 0 auto;
+        padding: 2rem 1rem 3rem;
+        text-align: center;
+      }
+      .desc-section p {
+        font-size: 1.125rem;
+        color: #a1a1aa;
+        line-height: 1.7;
+      }
 
-        .tagline {
-            font-size: 1.4rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-            color: #C4B5FD;
-        }
+      /* ── Features ────────────────────────────── */
+      .features-section {
+        max-width: 64rem;
+        margin: 0 auto;
+        padding: 2rem 1rem 4rem;
+      }
+      .features-section h2 {
+        text-align: center;
+        font-size: 1.875rem;
+        font-weight: 700;
+        margin-bottom: 2.5rem;
+        color: #fafafa;
+      }
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+      }
+      .feature-card {
+        border: 1px solid #27272a;
+        background: rgba(24,24,27,0.5);
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        transition: border-color 0.2s, transform 0.2s;
+        position: relative;
+      }
+      .feature-card:hover {
+        border-color: #34d399;
+        transform: translateY(-2px);
+      }
+      .feature-dot {
+        width: 8px;
+        height: 8px;
+        background: #34d399;
+        border-radius: 50%;
+        margin-bottom: 0.75rem;
+      }
+      .feature-card h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #34d399;
+      }
 
-        .domains-section {
-            padding: 4rem 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+      /* ── Install ─────────────────────────────── */
+      .install-section {
+        max-width: 40rem;
+        margin: 0 auto;
+        padding: 2rem 1rem 4rem;
+        text-align: center;
+      }
+      .install-section h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: #fafafa;
+      }
+      .code-block {
+        background: #18181b;
+        border: 1px solid #27272a;
+        border-radius: 0.5rem;
+        padding: 1rem 1.25rem;
+        font-family: 'Geist Mono', ui-monospace, 'Cascadia Code', 'Fira Code', monospace;
+        font-size: 0.95rem;
+        color: #34d399;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        position: relative;
+      }
+      .code-prompt {
+        color: #a1a1aa;
+        user-select: none;
+      }
+      .copy-btn {
+        position: absolute;
+        right: 0.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #27272a;
+        border: 1px solid #3f3f46;
+        color: #a1a1aa;
+        padding: 0.25rem 0.75rem;
+        border-radius: 0.375rem;
+        font-size: 0.8rem;
+        cursor: pointer;
+        transition: color 0.15s, border-color 0.15s;
+        font-family: 'Geist', system-ui, sans-serif;
+      }
+      .copy-btn:hover {
+        color: #fafafa;
+        border-color: #a1a1aa;
+      }
 
-        .domains-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 3rem 0;
-        }
+      /* ── DID Banner ──────────────────────────── */
+      .did-banner {
+        max-width: 64rem;
+        margin: 0 auto;
+        padding: 0 1rem 3rem;
+      }
+      .did-banner-inner {
+        border: 1px solid rgba(5,150,105,0.3);
+        background: rgba(6,78,59,0.15);
+        border-radius: 0.75rem;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+      .did-banner-inner .did-icon {
+        color: #34d399;
+        flex-shrink: 0;
+      }
+      .did-banner-inner .did-icon svg {
+        width: 32px;
+        height: 32px;
+      }
+      .did-banner-inner h3 {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #34d399;
+        margin-bottom: 0.25rem;
+      }
+      .did-banner-inner p {
+        font-size: 0.875rem;
+        color: #a1a1aa;
+      }
+      .did-banner-inner .btn-primary {
+        margin-left: auto;
+        white-space: nowrap;
+      }
 
-        .domain-card {
-            background: rgba(255,255,255,0.04);
-            padding: 1.5rem;
-            border-radius: 15px;
-            border: 1px solid rgba(167, 139, 250, 0.2);
-            transition: all 0.3s ease;
-            text-align: center;
-        }
+      /* ── Architect Banner ────────────────────── */
+      .architect-banner {
+        border-top: 1px solid #27272a;
+        text-align: center;
+        padding: 1.5rem 1rem;
+      }
+      .architect-banner p {
+        font-size: 0.95rem;
+        color: #a1a1aa;
+      }
+      .architect-banner a {
+        color: #34d399;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .architect-banner a:hover {
+        text-decoration: underline;
+      }
 
-        .domain-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255,255,255,0.08);
-            box-shadow: 0 10px 30px rgba(167, 139, 250, 0.2);
-        }
+      /* ── Footer ──────────────────────────────── */
+      .footer {
+        border-top: 1px solid #27272a;
+        background: #09090b;
+        padding: 2rem 1rem;
+        text-align: center;
+      }
+      .footer p {
+        font-size: 0.875rem;
+        color: #71717a;
+      }
+      .footer .motto {
+        margin-top: 0.5rem;
+        color: #52525b;
+      }
 
-        .domain-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .domain-card h3 {
-            color: #C4B5FD;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .domain-card p {
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-
-        .preview-section {
-            background: rgba(0,0,0,0.3);
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        .preview-box {
-            background: rgba(0,0,0,0.5);
-            border: 1px solid rgba(167, 139, 250, 0.3);
-            border-radius: 15px;
-            padding: 2rem;
-            max-width: 700px;
-            margin: 2rem auto;
-            text-align: left;
-            font-family: 'Courier New', monospace;
-            font-size: 0.85rem;
-            line-height: 1.8;
-            color: #E2D9F3;
-        }
-
-        .preview-box .highlight {
-            color: #FFD700;
-        }
-
-        .preview-box .accent {
-            color: #A78BFA;
-        }
-
-        .features-section {
-            padding: 4rem 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
+      /* ── Mobile ──────────────────────────────── */
+      @media (max-width: 768px) {
         .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
+          grid-template-columns: 1fr;
         }
-
-        .feature-item {
-            text-align: center;
-            padding: 2rem;
+        .nav-links {
+          gap: 1rem;
         }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+        .did-banner-inner {
+          flex-direction: column;
+          text-align: center;
         }
-
-        .feature-item h3 {
-            color: #FFD700;
-            margin-bottom: 1rem;
+        .did-banner-inner .btn-primary {
+          margin-left: 0;
         }
-
-        .cta-section {
-            background: linear-gradient(45deg, #7C3AED, #A78BFA);
-            padding: 4rem 2rem;
-            text-align: center;
+        .hero .cta-row {
+          flex-direction: column;
+          width: 100%;
+          padding: 0 1rem;
         }
-
-        .cta-button {
-            display: inline-block;
-            background: rgba(0, 0, 0, 0.4);
-            color: #FFD700;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin: 0.5rem;
-            transition: transform 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        .hero .cta-row a {
+          width: 100%;
+          justify-content: center;
         }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
+      }
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .features-grid {
+          grid-template-columns: repeat(2, 1fr);
         }
-
-        footer {
-            background: rgba(0,0,0,0.5);
-            padding: 2rem;
-            text-align: center;
-        }
+      }
     </style>
 </head>
 <body>
-    <div style="background: rgba(0,0,0,0.3); padding: 1rem 2rem; font-size: 0.9rem;">
-        <a href="https://skworld.io" style="color: #87CEEB; text-decoration: none;">🐧 SKWorld</a> →
-        <span>🌟 SkyForge</span>
-    </div>
-
-    <header class="header">
-        <div class="logo">🌟</div>
-        <h1 class="title">SkyForge</h1>
-        <p class="tagline">Forge Your Sovereign Path Through the Cosmos</p>
-        <p>Scientifically Mapped. Spiritually Grounded.</p>
-    </header>
-
-    <section class="domains-section">
-        <h2 style="text-align: center; font-size: 2.5rem; color: #FFD700; margin-bottom: 1rem;">
-            10 Integrated Guidance Domains
-        </h2>
-        <p style="text-align: center; color: #C4B5FD; margin-bottom: 2rem;">
-            Personalized daily alignment calendars that unify wisdom traditions with modern analysis.
-        </p>
-
-        <div class="domains-grid">
-            <div class="domain-card">
-                <div class="domain-icon">🌓</div>
-                <h3>Moon Phase & Sign</h3>
-                <p>Lunar phase, zodiac position, void-of-course periods</p>
-            </div>
-
-            <div class="domain-card">
-                <div class="domain-icon">🔢</div>
-                <h3>Numerology</h3>
-                <p>Life path, personal year/month/day calculations</p>
-            </div>
-
-            <div class="domain-card">
-                <div class="domain-icon">🌞</div>
-                <h3>Solar Return</h3>
-                <p>Annual chart, house focus, planetary transits</p>
-            </div>
-
-            <div class="domain-card">
-                <div class="domain-icon">🧬</div>
-                <h3>Human Design</h3>
-                <p>Type, strategy, authority, daily gate activations</p>
-            </div>
-
-            <div class="domain-card">
-                <div class="domain-icon">☯️</div>
-                <h3>I Ching</h3>
-                <p>Daily hexagram overlay with wisdom guidance</p>
-            </div>
-
-            <div class="domain-card">
-                <div class="domain-icon">📈</div>
-                <h3>Biorhythm</h3>
-                <p>Physical, emotional, intellectual cycle tracking</p>
-            </div>
-
-            <div class="domain-card">
-                <div class="domain-icon">⚠️</div>
-                <h3>Risk Analysis</h3>
-                <p>Multi-domain risk scoring and warnings</p>
-            </div>
-
-            <div class="domain-card">
-                <div class="domain-icon">🧘</div>
-                <h3>Exercise & Embodiment</h3>
-                <p>Physical activity recommendations</p>
-            </div>
-
-            <div class="domain-card">
-                <div class="domain-icon">🥣</div>
-                <h3>Nourishment</h3>
-                <p>Element-based dietary guidance</p>
-            </div>
-
-            <div class="domain-card">
-                <div class="domain-icon">📖</div>
-                <h3>Spiritual Reading</h3>
-                <p>Daily wisdom texts from curated library</p>
-            </div>
+    <!-- Nav -->
+    <nav class="nav">
+      <div class="nav-inner">
+        <a href="https://skyforge.io" class="nav-logo"><span style="color:#34d399">SkyForge</span></a>
+        <div class="nav-links">
+            <a href="https://skworld.io" class="nav-link">SKWorld</a>
+            <a href="https://skarchitect.io" class="nav-link">SKArchitect</a>
+            <a href="https://github.com/smilinTux/skyforge" class="nav-link" target="_blank" rel="noopener">GitHub</a>
         </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></div>
+      <h1><span style="color:#34d399">SkyForge</span></h1>
+      <p class="tagline">Your Personal Alignment Calendar</p>
+      <div class="cta-row">
+          <a href="#install" class="btn-primary">Get Started</a>
+          <a href="https://github.com/smilinTux/skyforge" class="btn-outline" target="_blank" rel="noopener">View on GitHub</a>
+      </div>
     </section>
 
-    <section class="preview-section">
-        <h2 style="font-size: 2.5rem; color: #FFD700; margin-bottom: 2rem;">
-            Sample Daily Alignment
-        </h2>
-
-        <div class="preview-box">
-            <span class="highlight">╔══════════════════════════════════════════════════════════╗</span><br>
-            <span class="highlight">║</span>  SKYFORGE DAILY SOVEREIGN ALIGNMENT<br>
-            <span class="highlight">║</span>  Wednesday, January 15, 2026 (Day 15 of 365)<br>
-            <span class="highlight">╠══════════════════════════════════════════════════════════╣</span><br>
-            <span class="highlight">║</span>  DAILY THEME: <span class="accent">"Grounded Action with Emotional Wisdom"</span><br>
-            <span class="highlight">║</span>  OVERALL ENERGY: Moderate-High | RISK LEVEL: Low<br>
-            <span class="highlight">╚══════════════════════════════════════════════════════════╝</span><br>
-            <br>
-            🌙 MOON: Waxing Gibbous (78%) in Taurus<br>
-            🔢 NUMEROLOGY: Personal Day 5 (Universal Day 7)<br>
-            ☀️ SOLAR TRANSIT: Sun in Capricorn, 10th House Focus<br>
-            🧬 HUMAN DESIGN: Gate 41 (Decrease) Active<br>
-            ☯️ I CHING: Hexagram 41 - Decrease<br>
-            📊 BIORHYTHM: Physical +67% | Emotional +23% | Mental -12%<br>
-            ⚠️ RISK ANALYSIS: Low (Score: 22/100)<br>
-            <br>
-            <span class="accent">💫 TODAY'S AFFIRMATION:</span><br>
-            &nbsp;&nbsp;&nbsp;<span class="accent">"I build my dreams with patient, steady hands."</span>
-        </div>
+    <!-- Description -->
+    <section class="desc-section">
+      <p>Moon phases, numerology, Human Design, I Ching, biorhythms -- personalized alignment calendars.</p>
     </section>
 
-    <section class="features-section">
-        <h2 style="text-align: center; font-size: 2.5rem; color: #FFD700; margin-bottom: 2rem;">
-            Key Capabilities
-        </h2>
-
-        <div class="features-grid">
-            <div class="feature-item">
-                <div class="feature-icon">📅</div>
-                <h3>Year-Agnostic</h3>
-                <p>Generate calendars for any year - past, present, or future.</p>
+    <!-- Features -->
+    <section class="features-section" id="features">
+      <h2>Features</h2>
+      <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-dot"></div>
+              <h3>Moon Cycles</h3>
             </div>
-
-            <div class="feature-item">
-                <div class="feature-icon">👥</div>
-                <h3>Multi-User Profiles</h3>
-                <p>Support multiple users with unique birth data and preferences.</p>
+            <div class="feature-card">
+              <div class="feature-dot"></div>
+              <h3>Numerology</h3>
             </div>
-
-            <div class="feature-item">
-                <div class="feature-icon">📄</div>
-                <h3>Multiple Formats</h3>
-                <p>PDF, Excel/CSV, JSON, and Web Dashboard output.</p>
+            <div class="feature-card">
+              <div class="feature-dot"></div>
+              <h3>Human Design</h3>
             </div>
-
-            <div class="feature-item">
-                <div class="feature-icon">🎯</div>
-                <h3>Actionable Guidance</h3>
-                <p>Daily practices tailored for optimal performance.</p>
+            <div class="feature-card">
+              <div class="feature-dot"></div>
+              <h3>I Ching</h3>
             </div>
-        </div>
+            <div class="feature-card">
+              <div class="feature-dot"></div>
+              <h3>Biorhythms</h3>
+            </div>
+            <div class="feature-card">
+              <div class="feature-dot"></div>
+              <h3>Birth Chart Transits</h3>
+            </div>
+      </div>
     </section>
 
-    <section class="cta-section">
-        <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Ready to Align Your Day?</h2>
-        <p style="font-size: 1.3rem; margin-bottom: 3rem;">
-            Stop juggling apps. Get one unified daily sovereign alignment.
-        </p>
-
-        <a href="https://github.com/smilinTux/skyforge" class="cta-button">
-            🚀 Get SkyForge
-        </a>
-
-        <a href="https://skworld.io#join" class="cta-button">
-            🐧 Join the Coalition
-        </a>
-    </section>
-
-    <footer>
-        <div style="margin-bottom: 2rem;">
-            <h3 style="color: #C4B5FD; margin-bottom: 1rem;">🌟 Part of the SKWorld Ecosystem</h3>
-            <p>Scientifically mapped. Spiritually grounded. Forged for sovereign living.</p>
+      <section class="install-section">
+        <h2>Get Started</h2>
+        <div class="code-block">
+          <span class="code-prompt">$</span> pip install skyforge
+          <button class="copy-btn" onclick="navigator.clipboard.writeText('pip install skyforge');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
         </div>
+      </section>
 
-        <div>
-            <a href="https://skcapstone.io" style="color: #87CEEB; text-decoration: none; margin: 0 0.8rem;">🏛️ SKCapstone</a>
-            <a href="https://capauth.io" style="color: #87CEEB; text-decoration: none; margin: 0 0.8rem;">🔐 CapAuth</a>
-            <a href="https://skmemory.io" style="color: #87CEEB; text-decoration: none; margin: 0 0.8rem;">🧠 SKMemory</a>
-            <a href="https://sksecurity.io" style="color: #87CEEB; text-decoration: none; margin: 0 0.8rem;">🛡️ SKSecurity</a>
-            <a href="https://skforge.io" style="color: #87CEEB; text-decoration: none; margin: 0 0.8rem;">🔨 SKForge</a>
-            <a href="https://skstacks.io" style="color: #87CEEB; text-decoration: none; margin: 0 0.8rem;">📦 SKStacks</a>
-            <a href="https://skhelp.io" style="color: #87CEEB; text-decoration: none; margin: 0 0.8rem;">🤖 SKHelp</a>
-            <a href="https://skworld.io" style="color: #87CEEB; text-decoration: none; margin: 0 0.8rem;">🌍 SKWorld</a>
-            <a href="https://github.com/smilinTux" style="color: #87CEEB; text-decoration: none; margin: 0 0.8rem;">📦 GitHub</a>
-        </div>
-
-        <p style="margin-top: 2rem; opacity: 0.7;">
-            &copy; 2026 S&amp;K Holding QT (Quantum Technologies) &bull; Waddle Together, Win Together 🐧
-        </p>
+      <section class="architect-banner">
+        <p>Shape the future &rarr; <a href="https://skarchitect.io">Submit proposals and vote at skarchitect.io</a></p>
+      </section>
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Part of the <a href="https://skworld.io" style="color:#34d399;text-decoration:none">SKWorld</a> sovereign ecosystem</p>
+      <p class="motto">staycuriousANDkeepsmilin</p>
     </footer>
 </body>
 </html>
